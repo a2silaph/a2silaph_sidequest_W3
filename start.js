@@ -29,7 +29,7 @@ function drawStart() {
     y: 320,
     w: 240,
     h: 80,
-    label: "START",
+    label: "HAPPY",
   };
 
   const instrBtn = {
