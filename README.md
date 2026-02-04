@@ -1,20 +1,21 @@
 ## Project Title
 
 GBDA302 Week 3 Example 1: Instructions Screen with Back button
+sidequest week 3
 
 ---
 
 ## Authors
 
-Karen Cochrane and David Han
+Aden Silaphet 21097720
+Buidling off of
+Karen Cochrane and David Han example
 
 ---
 
 ## Description
 
-This p5.js project demonstrates a simple multi-screen game structure using a state-based approach. The example includes a start screen, an instructions screen with a back button, a basic game screen, and win/lose outcome screens. The focus is on showing how to separate screens into different files, route input based on the current game state, and design simple UI elements such as buttons and keyboard controls.
-
----
+## This sidequest project is an interactive storyline type of game revolving around feeling. The game presents you with a scenerio and based on the scenario and your opinion, you can choose between 2 options that will lead to your outcome of a specific emotion.
 
 ## Learning Goals
 
@@ -36,4 +37,4 @@ N/A
 
 The code was written by Dr. Karen Cochrane but she used GenAI to write the comments.
 
----
+## I used genAI to write the code which is documented in my process document.

@@ -51,8 +51,10 @@ function draw() {
   if (currentScreen === "start") drawStart();
   else if (currentScreen === "instr") drawInstr();
   else if (currentScreen === "game") drawGame();
-  else if (currentScreen === "win") drawWin();
-  else if (currentScreen === "lose") drawLose();
+  else if (currentScreen === "okayPath") drawOkayPath();
+  else if (currentScreen === "disappointPath") drawDisappointPath();
+  else if (currentScreen === "frustratingPath") drawfrustratingPath();
+  else if (currentScreen === "funnyPath") drawfunnyPath();
 
   // (Optional teaching note)
   // This “if/else chain” is a very common early approach.
@@ -66,39 +68,13 @@ function draw() {
 // ------------------------------
 // This routes mouse input to the correct screen handler.
 function mousePressed() {
-  // Each screen *may* define a mouse handler:
-  // start.js         → startMousePressed()
-  // instructions.js  → instrMousePressed()
-  // game.js          → gameMousePressed()
-  // win.js           → winMousePressed()
-  // lose.js          → loseMousePressed()
-
   if (currentScreen === "start") startMousePressed();
   else if (currentScreen === "instr") instrMousePressed();
   else if (currentScreen === "game") gameMousePressed();
-  // The ?.() means “call this function only if it exists”
-  // This prevents errors if a screen doesn’t implement a handler.
-  else if (currentScreen === "win") winMousePressed?.();
-  else if (currentScreen === "lose") loseMousePressed?.();
-}
-
-// ------------------------------
-// keyPressed() runs once each time a key is pressed
-// ------------------------------
-// This routes keyboard input to the correct screen handler.
-function keyPressed() {
-  // Each screen *may* define a key handler:
-  // start.js         → startKeyPressed()
-  // instructions.js  → instrKeyPressed()
-  // game.js          → gameKeyPressed()
-  // win.js           → winKeyPressed()
-  // lose.js          → loseKeyPressed()
-
-  if (currentScreen === "start") startKeyPressed();
-  else if (currentScreen === "instr") instrKeyPressed();
-  else if (currentScreen === "game") gameKeyPressed?.();
-  else if (currentScreen === "win") winKeyPressed?.();
-  else if (currentScreen === "lose") loseKeyPressed?.();
+  else if (currentScreen === "okayPath") okayPathMousePressed?.();
+  else if (currentScreen === "disappointPath") disappointPathMousePressed?.();
+  else if (currentScreen === "frustratingPath") frustratingPathMousePressed?.();
+  else if (currentScreen === "funnyPath") funnyPathMousePressed?.();
 }
 
 // ------------------------------------------------------------
@@ -121,4 +97,17 @@ function isHover({ x, y, w, h }) {
     mouseY > y - h / 2 && // mouse is below top edge
     mouseY < y + h / 2 // mouse is above bottom edge
   );
+}
+function keyPressed() {
+  // GLOBAL back shortcut
+  if (key === "b" || key === "B") {
+    currentScreen = "start";
+    return;
+  }
+
+  if (currentScreen === "start") startKeyPressed?.();
+  else if (currentScreen === "instr") instrKeyPressed?.();
+  else if (currentScreen === "game") gameKeyPressed?.();
+  else if (currentScreen === "okayPath") okayPathKeyPressed?.();
+  else if (currentScreen === "disappointPath") disappointPathKeyPressed?.();
 }

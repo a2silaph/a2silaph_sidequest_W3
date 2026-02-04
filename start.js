@@ -18,7 +18,7 @@ function drawStart() {
   fill(30, 50, 60);
   textSize(46);
   textAlign(CENTER, CENTER);
-  text("Win or Lose", width / 2, 180);
+  text("How do you feel?", width / 2, 180);
 
   // ---- Buttons (data only) ----
   // These objects store the position/size/label for each button.
@@ -29,7 +29,7 @@ function drawStart() {
     y: 320,
     w: 240,
     h: 80,
-    label: "HAPPY",
+    label: "START",
   };
 
   const instrBtn = {
@@ -66,22 +66,6 @@ function startMousePressed() {
   }
   // If INSTRUCTIONS is clicked, go to the instructions screen
   else if (isHover(instrBtn)) {
-    currentScreen = "instr";
-  }
-}
-
-// ------------------------------------------------------------
-// Keyboard input for the start screen
-// ------------------------------------------------------------
-// Provides keyboard shortcuts:
-// - ENTER starts the game
-// - I opens instructions
-function startKeyPressed() {
-  if (keyCode === ENTER) {
-    currentScreen = "game";
-  }
-
-  if (key === "i" || key === "I") {
     currentScreen = "instr";
   }
 }
